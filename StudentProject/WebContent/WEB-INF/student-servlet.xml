@@ -25,5 +25,21 @@
        		<property name="prefix" value="/WEB-INF/"/>
        		<property name="suffix" value=".jsp"/>
        </bean>
+       
+       <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+       		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+       		<property name="url" value="jdbc:mysql://localhost:3306/student_db"/>
+       		<property name="username" value="root"/>
+       		<property name="password" value=""/>
+       </bean>
+       
+       <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+       		<property name="dataSource" ref="dataSource"/>
+       		<property name="typeAliasesPackage" value="com.java.student.model"/>
+       		<property name="mapperLocation" value="classpath*:com/java/student/mapper/*.xml"/>
+       </bean>
+       <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+       		<property name="basePackage" value="com.java.studuent.mapper"/>
+       </bean>
             
 </beans>
