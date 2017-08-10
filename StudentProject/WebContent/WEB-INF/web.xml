@@ -9,4 +9,19 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+  		<servlet-name>student</servlet-name>
+  		<servlet-class>
+  			org.springframework.web.servlet.DispatcherServlet
+  		</servlet-class>
+  		<init-param>
+  			<param-name>studnetConfig</param-name>
+  			<param-value>/WEB-INF/student-servlet.xml</param-value>
+  		</init-param>
+  		<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  		<servlet-name>student</servlet-name>
+  		<url-pattern>/</url-pattern>
+  </servlet-mapping>
 </web-app>
