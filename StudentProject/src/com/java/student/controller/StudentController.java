@@ -19,7 +19,7 @@ public class StudentController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homePage(){
-		System.out.println("========================"+studentService.login());
+		//System.out.println("========================"+studentService.login());
 		return "home";
 	}
 	
