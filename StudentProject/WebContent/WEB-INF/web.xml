@@ -14,14 +14,40 @@
   		<servlet-class>
   			org.springframework.web.servlet.DispatcherServlet
   		</servlet-class>
-  		<init-param>
+  		 <init-param>
   			<param-name>studnetConfig</param-name>
-  			<param-value>/WEB-INF/student-servlet.xml</param-value>
-  		</init-param>
+  			<param-value>
+	  			/WEB-INF/student-servlet.xml
+	  		</param-value>
+  		</init-param> 
   		<load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
   		<servlet-name>student</servlet-name>
   		<url-pattern>/</url-pattern>
   </servlet-mapping>
+ <listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/students-securiry.xml
+		</param-value>
+	</context-param>
+
+	<!-- Spring Security -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+ 
 </web-app>

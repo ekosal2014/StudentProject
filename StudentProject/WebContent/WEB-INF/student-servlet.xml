@@ -22,8 +22,8 @@
        <mvc:resources location="/static/**" mapping="/static/**"/>   
        
        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-       		<property name="prefix" value="/WEB-INF/"/>
-       		<property name="suffix" value=".jsp"/>
+       		<property name="prefix"><value>/WEB-INF/</value></property>
+ 		    <property name="suffix"><value>.jsp</value></property>
        </bean>
        
        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -36,10 +36,10 @@
        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
        		<property name="dataSource" ref="dataSource"/>
        		<property name="typeAliasesPackage" value="com.java.student.model"/>
-       		<property name="mapperLocation" value="classpath*:com/java/student/mapper/*.xml"/>
+       		<property name="mapperLocations" value="classpath*:com/java/student/mapper/*.xml"/>
        </bean>
        <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-       		<property name="basePackage" value="com.java.studuent.mapper"/>
+       		<property name="basePackage" value="com.java.student.mapper"/>
        </bean>
             
 </beans>
