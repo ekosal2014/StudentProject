@@ -13,7 +13,7 @@
 		<div class="wrap-content-left">
 			<div style="height:100px;"></div>
 			<div class="wrap-content-login">
-			<form  name='f' action="${pageContext.request.contextPath}/j_spring_security_check" method='POST'>
+			<form  name='f' action="${pageContext.request.contextPath}/loginform" method='POST'>
 				  <div class="imgcontainer">
 						<img src="${pageContext.request.contextPath }/static/img/3.png" alt="Avatar" class="avatar" width="100" height="100">
 				  </div>

@@ -11,7 +11,7 @@
 		<intercept-url pattern="/student/**" access="ROLE_USER" />
 		<form-login 
 					login-page="/login"
-					login-processing-url="/j_spring_security_check"
+					login-processing-url="/loginform"
 					default-target-url="/student/"
 					authentication-failure-url="/login?error=true"
 					username-parameter="userName"
