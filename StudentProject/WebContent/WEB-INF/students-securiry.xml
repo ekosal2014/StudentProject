@@ -8,9 +8,10 @@
 
 	<http auto-config="true">
 		<intercept-url pattern="/" access="ROLE_USER" />
-		<!-- <intercept-url pattern="/student/**" access="ROLE_USER" />
+		<intercept-url pattern="/student/**" access="ROLE_USER" />
 		<form-login 
 					login-page="/login"
+					login-processing-url="/j_spring_security_check"
 					default-target-url="/student/"
 					authentication-failure-url="/login?error=true"
 					username-parameter="userName"
@@ -21,30 +22,27 @@
 		<logout logout-url="/logout"
 				logout-success-url="/logoutSuccessful"
 				delete-cookies="JSESSIONID"
-				invalidate-session="true"/>  -->
+				invalidate-session="true"/>  
 				
-		<!-- <intercept-url pattern="/" access="permitAll()" />
-		<intercept-url pattern="/login" access="permitAll()" />
-		<intercept-url pattern="/student/**" access="hasRole('ROLE_USER')" />
-		<intercept-url pattern="/logout" access="permitAll()" />
 		
-		<form-login 
-					login-page="/login"
-					default-target-url="/student/"
-					authentication-failure-url="/login?error=true"
-					username-parameter="userName"
-					password-parameter="passWord"/>
-					
-		<access-denied-handler error-page="/403"/>
-		
-		<logout logout-url="/logout"
-				logout-success-url="/logoutSuccessful"
-				delete-cookies="JSESSIONID"
-				invalidate-session="true"/> -->
 	</http>
-
-	 <!--< authentication-manager alias="authenticationManager">
-        <authentication-provider user-service-ref="studentService"/>
-    </authentication-manager> -->
-
+	  
+    <beans:bean id="studentService" class="com.java.student.service.StudentService"/>
+    
+    <authentication-manager alias="authenticationManager">
+		<authentication-provider  user-service-ref="studentService"/>
+			<!-- <user-service>
+				<user name="mkyong" password="123456" authorities="ROLE_USER" />
+				<user name="" authorities=""/>
+			</user-service>  
+		</authentication-provider> -->
+	</authentication-manager> 
+	<!-- <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="user1" password="12345" authorities="ROLE_USER" />
+                <user name="admin1" password="12345" authorities="ROLE_USER, ROLE_ADMIN" />
+            </user-service>
+        </authentication-provider>
+      </authentication-manager> -->
 </beans:beans>

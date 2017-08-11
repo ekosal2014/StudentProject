@@ -16,18 +16,13 @@ public class StudentController {
 
 	@Autowired
 	private StudentService studentService;
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homePage(){
 		System.out.println("========================"+studentService.login());
 		return "home";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String logInPage(){
-		//System.out.println("========================"+studentService.login());
-		return "login";
-	}
 	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
 
